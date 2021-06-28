@@ -1,7 +1,11 @@
-<div class="box-contianer">
-  <div class="position-relative dice" id="dice">
-    <div class="face face-one" id="faceOne">1</div>
-    <div class="face face-two" id="faceTwo">2</div>
+<div class="d-flex flex-column align-items-center pt-5 pb-2 box-contianer">
+  <div class="position-relative box" id="box">
+    <div class="shadow-sm face face-one" id="faceOne">
+      <%= render partial: 'sessions/login' %>
+    </div>
+    <div class="shadow-sm face face-two" id="faceTwo">
+      <%= render partial: 'users/sign_up' %>
+    </div>
   </div>
+  <button class="mt-auto px-5 btn btn-link toggle" id="toggle">Sign up</button>
 </div>
-<button id="toggle">rit</button>

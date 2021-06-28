@@ -1,32 +1,32 @@
 .box-contianer {
   position: relative;
-  display: flex;
-  justify-content: center;
   width: 100%;
-  height: 200px;
-  border: 1px black solid;
+  height: auto;
 }
 
-.dice {
-  display: flex;
-  justify-content: left;
-  transition: 1s all linear;
+.box {
+  height: 370px;
+  margin-left: -400px;
+  transition: 0.5s all linear;
   transform-style: preserve-3d;
   transform: rotate3d(0, 1, 0, 0deg);
 }
 
 .face {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   padding: 2px;
-  background-color: #e7e7e7;
-  border: 2px solid black;
 }
 
 .face-two {
   transform-origin: left;
-  transform: translateX(200px) rotate3d(0,1,0, -90deg);
+  transform: translateX(400px) rotate3d(0,1,0, -90deg);
+}
+
+.toggle {
+  width: 395px;
+  z-index: 99;
 }
 
 .rotate {

@@ -1,7 +1,6 @@
-const toggle_button = document.getElementById("toggle")
+const toggleButton = document.getElementById("toggle")
 
-toggle_button.onclick = function () {
-  box = document.getElementById("dice")
-  box.classList.toggle('rotate')
-  console.log("sdfsd");
+toggleButton.onclick = function () {
+  document.getElementById("box").classList.toggle('rotate'); 
+  toggleButton.innerText = toggleButton.innerText === 'Sign up' ? 'Login' : 'Sign up';
 }
