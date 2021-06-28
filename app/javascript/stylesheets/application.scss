@@ -1,1 +1,34 @@
+.box-contianer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  border: 1px black solid;
+}
 
+.dice {
+  display: flex;
+  justify-content: left;
+  transition: 1s all linear;
+  transform-style: preserve-3d;
+  transform: rotate3d(0, 1, 0, 0deg);
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  padding: 2px;
+  background-color: #e7e7e7;
+  border: 2px solid black;
+}
+
+.face-two {
+  transform-origin: left;
+  transform: translateX(200px) rotate3d(0,1,0, -90deg);
+}
+
+.rotate {
+  transform: rotate3d(0, 1, 0, 90deg);
+} 

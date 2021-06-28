@@ -11,7 +11,9 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container-fluid">
     <%= yield %>
+    
+    <%= javascript_pack_tag 'session' %>
   </body>
 </html>
