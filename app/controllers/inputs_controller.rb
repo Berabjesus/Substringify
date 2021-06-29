@@ -10,12 +10,7 @@ class InputsController < ApplicationController
     @sub_string = nil
     unless @query.nil?
      @sub_string = get_longest_substring @query
-     p @sub_string
     end
-    # p @query
-    # @input 
-    # session.clear
-    # redirect_to "/#{params[:name]}"
   end
 
   def create
