@@ -27,7 +27,7 @@ class InputsController < ApplicationController
   private
   
   def get_longest_substring string
-    string = string.gsub(/[^0-9a-z ]/i, '')
+    string = string.gsub(/[^0-9a-z ]/i, '').delete(" \t\r\n")
     if string.nil? || string == ""
       return nil
     end
