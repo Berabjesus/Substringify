@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :sessions, only: %i[new create destroy]
+  resources :users, only: %i[create]
+  resources :inputs, only: %i[new create destroy]
+  get '/:query', to: 'inputs#new'
+  root to: 'inputs#new'
 end

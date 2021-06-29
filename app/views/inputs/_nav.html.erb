@@ -1,0 +1,10 @@
+<nav class="navbar bg-theme w-100 mx-0 px-5">
+  <a class="navbar-brand" href="#">
+    <strong class="text-white display-6">Sub<em class="text-danger">[String]</em>ify</strong>
+  </a>
+  <%= link_to session_path(current_user.id), method: :delete, class: 'text-uppercase border-dark ml-md-2 mb-3 mb-md-0 text-decoration-none text-white' do%>
+    <div class="d-flex flex-column align-items-center border border-white p-2">
+      <small class="">Log out</small>
+    </div>
+  <%end%>
+</nav>

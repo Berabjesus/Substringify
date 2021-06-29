@@ -1,0 +1,22 @@
+<div class="px-3 bg-white">
+  <div class="text-center border-bottom">
+    <h3>Login</h3>
+  </div>
+  <%= form_with url: sessions_path , class: 'form-horizontal' do %>
+    <div class="form-group py-3">
+      <%= label_tag :username, "User Name"%>
+      <%= text_field_tag :username,"", placeholder: 'Your User Name here', class: 'form-control'%>
+    </div>
+    <div class="form-group py-3">
+      <%= label_tag :password%>
+      <%= password_field_tag :password,"",placeholder: 'Your password here', class: 'form-control'%>
+    </div>
+    <div class="form-group py-3 w-100 text-center">
+      <%= submit_tag "Login", class: 'btn btn-info'%>
+    </div>
+  <%end%>
+
+  <div class="mt-2 d-flex flex-column align-items-center">
+    <p>Not Signed up?</p>
+  </div>
+</div>

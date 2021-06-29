@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Substringify</title>
+    <title>Sub[String]ify</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container-fluid px-0 bg-white">
+    <% if flash[:alert]%>
+      <div class="alert alert-info alert-dismissible shadow-sm bg-white d-flex flex-column align-items-center col-7 mx-auto mt-2 py-1">
+      <strong class="h6"><%= alert%></strong>
+    <div>
+      <a href="#" class="btn btn-light border mt-2 px-2" data-dismiss="alert" aria-label="close">Ok</a>
+    </div>
+    </div>
+  <%end%>
     <%= yield %>
+    
+    <%= javascript_pack_tag 'session' %>
   </body>
 </html>
