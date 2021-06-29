@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   
-  helper_method :current_user, :logged_in?
+  helper_method :current_user
 
   private
 
@@ -22,10 +22,6 @@ class ApplicationController < ActionController::Base
 
   def get_session
     session[session_name]
-  end
-
-  def logged_in?
-    session_exists? && current_user ? true : false
   end
 
   def session_name
