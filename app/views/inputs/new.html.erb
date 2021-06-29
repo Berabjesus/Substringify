@@ -3,4 +3,10 @@
     <button class="btn-search"><i class="fas fa-search"></i></button>
     <input type="text" class="input-search" placeholder="Type to Search...">
   </div>
+
+  <%= form_with url: inputs_path, method: :post do |form| %>
+    <%= form.label :query, "Search for:" %>
+    <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+<% end %>
 </section>
