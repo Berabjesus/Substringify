@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
-    p @user.id
+    if @user.save
+      create_session @user.id
+      # redirect_to
+    end
   end
 
   private
