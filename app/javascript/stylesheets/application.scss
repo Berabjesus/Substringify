@@ -42,8 +42,8 @@
 .search-box-container {
   margin: 0px;
   padding: 0px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,6 +55,7 @@
   width: fit-content;
   height: fit-content;
   position: relative;
+  margin: -100px 0 0 0;
 }
 .input-search{
   height: 50px;
@@ -104,4 +105,8 @@
   background-color: transparent;
   border-bottom:1px solid rgba(255,255,255,.5);
   transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.navbar {
+  background-color: rgb(10, 7, 26);
 }
