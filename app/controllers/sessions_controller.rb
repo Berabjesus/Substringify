@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: session_params[:username])
     if @user&.authenticate(session_params[:password])
       create_session @user.id
-      p get_session
+      redirect_to input_index_path
     else
       # redirect_to articles_path, alert: 'Username or password not found'
     end
