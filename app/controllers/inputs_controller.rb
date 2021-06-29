@@ -6,6 +6,7 @@ class InputsController < ApplicationController
   end
 
   def new
+    session.clear
     @query = input_params[:query]
     @sub_string = nil
     unless @query.nil?

@@ -12,6 +12,14 @@
   </head>
 
   <body class="container-fluid px-0">
+    <% if flash[:alert]%>
+      <div class="alert alert-info alert-dismissible shadow-sm py-0 bg-white d-flex flex-column align-items-center col-7 mx-auto mt-2 py-1">
+      <strong class="h5"><%= alert%></strong>
+    <div>
+      <a href="#" class="btn btn-light border mt-4 px-2" data-dismiss="alert" aria-label="close">Ok</a>
+    </div>
+    </div>
+  <%end%>
     <%= yield %>
     
     <%= javascript_pack_tag 'session' %>

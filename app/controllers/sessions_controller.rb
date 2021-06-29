@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
       create_session @user.id
       redirect_to root_path
     else
-      # redirect_to articles_path, alert: 'Username or password not found'
+      flash[:alert] = "Username or password not found."
+      render :new
     end
   end
 
