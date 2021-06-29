@@ -21,9 +21,6 @@ class InputsController < ApplicationController
     
   end
 
-  def destroy
-  end
-
   private
   
   def get_longest_substring string
@@ -53,20 +50,20 @@ class InputsController < ApplicationController
         first = last
       end
     end
-      subs = nil
-      res = last - first if res == 0
+    substring = nil
+    res = last - first if res == 0
 
-      if map.length > res
-        res = map.length
-        staring_index = map[map.keys.first]
-        ending_index = map[map.keys.last]
-        subs = string[staring_index..ending_index]
-      elsif staring_index == 0 && ending_index == 0
-        subs = string[first + 1..last]
-      else
-        subs = string[staring_index..ending_index]
-      end
-      subs
+    if map.length > res
+      res = map.length
+      staring_index = map[map.keys.first]
+      ending_index = map[map.keys.last]
+      substring = string[staring_index..ending_index]
+    elsif staring_index == 0 && ending_index == 0
+      substring = string[first + 1..last]
+    else
+      substring = string[staring_index..ending_index]
+    end
+    substring
   end
 
   def input_params
