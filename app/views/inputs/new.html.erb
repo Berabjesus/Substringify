@@ -3,7 +3,7 @@
   <%= form_with url: inputs_path, method: :post do |form| %>
     <div class="search-box">
       <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
-      <%= form.text_field :query, class: 'input-search', placeholder: 'Type to Search...' %>
+      <%= form.text_field :query, class: 'input-search', placeholder: 'Type your string input...' %>
     </div>
   <% end %>
   <%= result %>

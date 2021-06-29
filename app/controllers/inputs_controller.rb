@@ -1,10 +1,6 @@
 class InputsController < ApplicationController
   before_action :access_control, only: %i[index new create destroy]
-
-  def index
-   
-  end
-
+  
   def new
     # session.clear
     @query = input_params[:query]
@@ -15,8 +11,17 @@ class InputsController < ApplicationController
   end
 
   def create
-    p params[:query]
-    redirect_to "/#{params[:query]}"
+    @query = input_params[:query]
+    @sub_string = get_longest_substring @query
+    @input = current_user.inputs.build(input_params)
+    @input.result = @sub_string
+    if @input.save
+      redirect_to "/#{params[:query]}"
+    else
+      flash[:alert] = "Unable to store to database"
+      render :new
+    end
+    
   end
 
   def destroy
