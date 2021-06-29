@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
     session[session_name]
   end
 
+  def logged_in?
+    session_exists? && current_user ? true : false
+  end
+
   def session_name
     :substringify_session_token
   end
