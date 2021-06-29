@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       create_session @user.id
-      redirect_to input_index_path
+      redirect_to root_path
     end
   end
 
