@@ -13,10 +13,10 @@
 
   <body class="container-fluid px-0 bg-white">
     <% if flash[:alert]%>
-      <div class="alert alert-info alert-dismissible shadow-sm py-0 bg-white d-flex flex-column align-items-center col-7 mx-auto mt-2 py-1">
-      <strong class="h5"><%= alert%></strong>
+      <div class="alert alert-info alert-dismissible shadow-sm bg-white d-flex flex-column align-items-center col-7 mx-auto mt-2 py-1">
+      <strong class="h6"><%= alert%></strong>
     <div>
-      <a href="#" class="btn btn-light border mt-4 px-2" data-dismiss="alert" aria-label="close">Ok</a>
+      <a href="#" class="btn btn-light border mt-2 px-2" data-dismiss="alert" aria-label="close">Ok</a>
     </div>
     </div>
   <%end%>

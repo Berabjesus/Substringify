@@ -10,6 +10,8 @@ class InputsController < ApplicationController
   end
 
   def create
+    return if input_params[:query].nil? || input_params[:query].length == 0
+
     @input = current_user.inputs.build(input_params)
     @input.result = get_longest_substring input_params[:query]
     if @input.save
@@ -18,7 +20,6 @@ class InputsController < ApplicationController
       flash[:alert] = "Unable to store to database"
       redirect_to new_input_path
     end
-    
   end
 
   private
