@@ -1,7 +1,7 @@
 <%= render partial: 'nav' %>
-<section class="d-flex flex-column search-box-container">
+<section class="d-flex flex-column query-box-container">
   <%= form_with url: inputs_path, method: :post do |form| %>
-    <div class="search-box">
+    <div class="query-box bg-theme">
       <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
       <%= form.text_field :query, class: 'input-search', placeholder: 'Type your string input...' %>
     </div>

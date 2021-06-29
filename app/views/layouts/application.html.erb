@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Substringify</title>
+    <title>Sub[String]ify</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,7 +11,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="container-fluid px-0">
+  <body class="container-fluid px-0 bg-white">
     <% if flash[:alert]%>
       <div class="alert alert-info alert-dismissible shadow-sm py-0 bg-white d-flex flex-column align-items-center col-7 mx-auto mt-2 py-1">
       <strong class="h5"><%= alert%></strong>
