@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
+    session.delete(:substringify_session_token)
+    redirect_to root_path, alert: 'Your Logged out.'
   end
 
   def session_params

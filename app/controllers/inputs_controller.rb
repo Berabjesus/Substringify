@@ -1,8 +1,7 @@
 class InputsController < ApplicationController
-  before_action :access_control, only: %i[index new create destroy]
+  before_action :access_control, only: %i[new create destroy]
   
   def new
-    # session.clear
     @query = input_params[:query]
     @sub_string = nil
     unless @query.nil?
@@ -11,15 +10,13 @@ class InputsController < ApplicationController
   end
 
   def create
-    @query = input_params[:query]
-    @sub_string = get_longest_substring @query
     @input = current_user.inputs.build(input_params)
-    @input.result = @sub_string
+    @input.result = get_longest_substring input_params[:query]
     if @input.save
       redirect_to "/#{params[:query]}"
     else
       flash[:alert] = "Unable to store to database"
-      render :new
+      redirect_to new_input_path
     end
     
   end
@@ -30,10 +27,10 @@ class InputsController < ApplicationController
   private
   
   def get_longest_substring string
+    string = string.gsub(/[^0-9a-z ]/i, '')
     if string.nil? || string == ""
       return nil
     end
-
     str_to_char = string.chars
     map = {}
     first = -1

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def access_control
-    redirect_to new_session_path, alert: 'You are not logged in' unless session_exists? && current_user
+    redirect_to new_session_path unless session_exists? && current_user
   end
 
   def current_user
