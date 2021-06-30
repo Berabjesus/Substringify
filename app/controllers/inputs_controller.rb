@@ -25,42 +25,52 @@ class InputsController < ApplicationController
   private
   
   def get_longest_substring string
-    string = string.gsub(/[^0-9a-z ]/i, '').delete(" \t\r\n")
+    string = string.gsub(/[^0-9a-z]/i, '')
     if string.nil? || string == ""
       return nil
     end
     str_to_char = string.chars
     map = {}
-    first = -1
+    first = 0
     last = 0
-    res = 0
+    max_len = 0
     staring_index = 0
     ending_index = 0
+
+    # b = 0  
+    # k = 1    last = 1
+    # b = 2    max = 2      si = 0    ei = 1    fr = 2  las = 2
+    # b = 3    max = 2      fr = 3   ls = 3
+    # e = 4    las = 4
+    # r = 5 == las
+    # f = 6 == las
+    # s = 7 == las
+    # d = 8 == las
+    # f
+    # 
+
     str_to_char.each_with_index do |char, i|
       if !map[char]
         map[char] = i
         last = i
       else
-        if res < last - first
-          res = last - first
-          staring_index = first + 1
+        if max_len < last - first
+          max_len = last - first
+          staring_index = first
           ending_index = last
         end
         map = {}
         map[char] = i
-        first = last
+        first = last = i
       end
     end
     substring = nil
-    res = last - first if res == 0
+    max_len = last - first if max_len == 0
 
-    if map.length > res
-      res = map.length
+    if map.length > max_len
       staring_index = map[map.keys.first]
       ending_index = map[map.keys.last]
       substring = string[staring_index..ending_index]
-    elsif staring_index == 0 && ending_index == 0
-      substring = string[first + 1..last]
     else
       substring = string[staring_index..ending_index]
     end
