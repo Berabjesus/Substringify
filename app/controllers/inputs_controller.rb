@@ -33,36 +33,35 @@ class InputsController < ApplicationController
     map = {}
     first = 0
     last = 0
-    max_len = 0
+    diff = 0
     staring_index = 0
     ending_index = 0
 
     str_to_char.each_with_index do |char, i|
-      if !map[char]
+      if !map[char] || map[char] < first
         map[char] = i
         last = i
       else
-        if max_len < last - first
-          max_len = last - first
+        if diff < last - first
+          diff = last - first
           staring_index = first
           ending_index = last
         end
-        map = {}
+        if map[char] >= first
+          first = map[char] + 1
+        else
+          first = i
+        end
         map[char] = i
-        first = last = i
+        last = first = i
+      end
+      if diff < last - first
+        staring_index = first
+        ending_index = last
       end
     end
-    substring = nil
-    max_len = last - first if max_len == 0
 
-    if map.length > max_len
-      staring_index = map[map.keys.first]
-      ending_index = map[map.keys.last]
-      substring = string[staring_index..ending_index]
-    else
-      substring = string[staring_index..ending_index]
-    end
-    substring
+    return string [staring_index..ending_index]
   end
 
   def input_params
