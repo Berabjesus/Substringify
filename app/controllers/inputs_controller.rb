@@ -37,18 +37,6 @@ class InputsController < ApplicationController
     staring_index = 0
     ending_index = 0
 
-    # b = 0  
-    # k = 1    last = 1
-    # b = 2    max = 2      si = 0    ei = 1    fr = 2  las = 2
-    # b = 3    max = 2      fr = 3   ls = 3
-    # e = 4    las = 4
-    # r = 5 == las
-    # f = 6 == las
-    # s = 7 == las
-    # d = 8 == las
-    # f
-    # 
-
     str_to_char.each_with_index do |char, i|
       if !map[char]
         map[char] = i
